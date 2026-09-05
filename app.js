@@ -23,7 +23,11 @@ const statement = [];
 const operations = {
   check: () => window.alert(`Saldo atual: R$ ${balance}`),
   deposit: () => {
-    const value = Number(window.prompt('Valor do depósito:'));
+    const response = window.prompt('Valor do depósito:');
+
+    if (response === null) return window.alert('Operação cancelada.');
+
+    const value = Number(response);
 
     if (value < 1) {
       window.alert('Digite um valor válido.');
@@ -37,13 +41,17 @@ const operations = {
 
     statement[statement.length] = {
       type: 'Depósito',
-      value: Number(value)
+      value: value
     };
 
     window.alert(`Saldo atual: R$ ${balance}`);
   },
   cashout: () => {
-    const value = Number(window.prompt('Valor do saque:'));
+    const response = window.prompt('Valor do saque:');
+
+    if (response === null) return window.alert('Operação cancelada.');
+
+    const value = Number(response);
 
     if (value < 1) {
       window.alert('Digite um valor válido.');
@@ -60,7 +68,7 @@ const operations = {
 
     statement[statement.length] = {
       type: 'Saque',
-      value: Number(value)
+      value: value
     };
 
     window.alert(`Saldo atual: R$ ${balance}`);
@@ -79,6 +87,10 @@ const operations = {
     window.alert(text);
   },
   exit: () => {
+    const response = window.confirm('Deseja realmente sair?');
+
+    if (!response) return;
+
     window.alert('Foi um prazer atendê-lo.');
     repeat = false;
   },
@@ -97,6 +109,10 @@ while (repeat) {
   `);
 
   if (operation === null) {
+    const response = window.confirm('Deseja realmente cancelar?');
+
+    if (!response) continue;
+
     window.alert('Operaçao cancelada.');
     repeat = false;
   } else if (operation === '') {
