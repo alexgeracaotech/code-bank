@@ -95,7 +95,7 @@ const operations = {
     setTimeout(() => exit.textContent = 'Saindo..', 2000);
     setTimeout(() => exit.textContent = 'Saindo...', 2500);
 
-    setTimeout(() => window.location.href = '../index.html', 3000);
+    setTimeout(() => window.location.href = './login.html', 3000);
   }
 }
 
