@@ -16,6 +16,12 @@ button.addEventListener('click', (event) => {
   if (emailValue === '' || passwordValue === '')
     return window.alert('Os campos de email e/ou senha precisam estar preechidos.');
 
+  for (let i = 0; i < datas.length; i++) {
+    if (datas[i].email === emailValue) {
+      return alert('Este email já está cadastrado.');
+    }
+  }
+
   datas[datas.length] = {
     name: nameValue || 'usuário',
     email: emailValue,
