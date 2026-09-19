@@ -3,7 +3,7 @@ const email = document.querySelector('input[type="email"]');
 const password = document.querySelector('input[type="password"]');
 const button = document.querySelector('button');
 
-const getDatas = JSON.parse(sessionStorage.getItem('database'));
+const getDatas = JSON.parse(sessionStorage.getItem('database')) || [];
 const datas = [...getDatas];
 
 button.addEventListener('click', (event) => {
