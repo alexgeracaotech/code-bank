@@ -87,6 +87,10 @@ const operations = {
     }
 
     exit.disabled = true;
+    check.disabled = true;
+    deposit.disabled = true;
+    cashout.disabled = true;
+    statement.disabled = true;
 
     setTimeout(() => exit.textContent = 'Saindo.', 0);
     setTimeout(() => exit.textContent = 'Saindo..', 500);
