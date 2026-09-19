@@ -3,11 +3,9 @@ const password = document.querySelector('input[type="password"]');
 const button = document.querySelector('button');
 const error = document.querySelector('span');
 
-const user = {
-  email: 'admin@email.com',
-  password: 'admin'
-}
+const users = JSON.parse(sessionStorage.getItem('database'));
 
+const user = {};
 
 button.addEventListener('click', (event) => {
   event.preventDefault();
@@ -18,7 +16,15 @@ button.addEventListener('click', (event) => {
   if (emailValue === '' || passwordValue === '')
     return window.alert('Todos campos precisam ser preenchidos.');
 
-  if (emailValue !== user.email || passwordValue !== user.password)
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].email === emailValue && users[i].password === passwordValue) {
+      user.name = users[i].name;
+      user.email = users[i].email;
+      user.password = users[i].password;
+    }
+  }
+
+  if (!user.email || !user.password)
     return window.alert('E-mail e/ou senha incorretos.');
 
   window.alert('Acesso permitido.');
